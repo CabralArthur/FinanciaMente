@@ -21,10 +21,12 @@
     outline: none;
     list-style: none;
     border: none;
+    scroll-behavior: smooth;
 }
 
 body {
     background-color: var(--primary-white);
+    overflow-x: hidden;
 }
 
 /*Global Classes*/
@@ -98,7 +100,7 @@ body {
 
 /*First Section*/
 
-.first-section {
+#first-section {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -108,7 +110,7 @@ body {
     padding: 2rem;
 }
 
-.first-section .left-side {
+.left-side {
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -120,18 +122,18 @@ body {
     margin-left: 4rem;
 }
 
-.first-section .left-side .buttons {
+.left-side .buttons {
     display: flex;
 }
 
-.first-section .left-side .title-left-side {
+.left-side .title-left-side {
     color: var(--primary-purple);
     text-align: left;
     font-size: 2rem;
     max-width: 400px;
 }
 
-.first-section .left-side .description {
+.left-side .description {
     color: var(--primary-purple);
     font-weight: 500;
     max-width: 500px;
@@ -208,4 +210,14 @@ body {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+}
+
+/*About Section*/
+
+#about-section {
+    width: 100%;
+    height: 100vh;
+    background: var(--primary-purple);
+    background: -webkit-linear-gradient(to right, var(--primary-purple), var(--second-purple));
+    background: linear-gradient(to right, var(--primary-purple), var(--second-purple));
 }
