@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=Montserrat:wght@500;600;700;800;900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 
 :root {
     --primary-font: "Montserrat", sans-serif;
@@ -10,6 +11,8 @@
     --primary-gray: #e5e5e9;
     --primary-green: #79a73a;
     --second-green: #658b30;
+    --third-green: #85c927;
+    --dark-green: #233011;
 }
 
 * {
@@ -217,7 +220,53 @@ body {
 #about-section {
     width: 100%;
     height: 100vh;
-    background: var(--primary-purple);
-    background: -webkit-linear-gradient(to right, var(--primary-purple), var(--second-purple));
-    background: linear-gradient(to right, var(--primary-purple), var(--second-purple));
+    background: var(--primary-green);
+    background: -webkit-linear-gradient(to right, var(--primary-green), var(--third-green));
+    background: linear-gradient(to right, var(--primary-green), var(--third-green));
+}
+
+.about-header {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.about-header .title-section::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 250px;
+    margin: 5px auto;
+    background-color: var(--primary-gray);
+}
+
+.about-header .title-section {
+    color: var(--primary-white);
+    margin: 1rem auto;
+    font-size: 2.5rem;
+}
+
+.about-header .title-section::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 300px;
+    margin: 5px auto;
+    background-color: var(--primary-gray);
+}
+
+.description-about {
+    color: var(--dark-green);
+    font-weight: 400;
+    max-width: 500px;
+}
+
+.description-about span {
+    font-weight: 600;
+    max-width: 800px;
+    font-size: 1.5rem;
 }
