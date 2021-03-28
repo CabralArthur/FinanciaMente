@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=Montserrat:wght@500;600;700;800;900&display=swap");
+
+:root {
+    --primary-font: "Montserrat", sans-serif;
+    --primary-purple: #4a49ff;
+    --second-purple: #3d3df8;
+    --first-dark-purple: #212170;
+    --second-dark-purple: #03045e;
+    --primary-white: #fdfdff;
+    --primary-gray: #e5e5e9;
+    --primary-green: #79a73a;
+    --second-green: #658b30;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--primary-font);
+    text-decoration: none;
+    outline: none;
+    list-style: none;
+    border: none;
+}
+
+body {
+    background-color: var(--primary-white);
+}
+
+/*Global Classes*/
+
+.btn,
+.btn-green {
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin: 0.25rem;
+    transition: all 0.5s;
+}
+
+.btn {
+    background-color: var(--primary-purple);
+    color: var(--primary-white);
+}
+
+.btn-green {
+    background-color: var(--primary-green);
+    color: var(--primary-white);
+}
+
+.btn-green:hover {
+    background-color: var(--second-green);
+}
+
+.green-color {
+    color: var(--primary-green);
+}
+
+/*Header*/
+.main-header {
+    width: 100%;
+    height: 5rem;
+}
+
+.content-main-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.logo-main-header {
+    width: 15rem;
+    height: 3rem;
+    cursor: pointer;
+}
+
+.logo-main-header a {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.list-header-nav {
+    display: flex;
+    gap: 2.5rem;
+}
+
+.header-navigation .list-header-nav li a {
+    color: var(--primary-purple);
+    font-weight: 600;
+}
+
+.header-navigation .list-header-nav li a:hover {
+    color: var(--primary-green);
+}
+
+/*First Section*/
+
+.first-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.first-section .left-side {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 40%;
+    justify-content: center;
+    text-align: left;
+    gap: 2rem;
+    margin-bottom: 8rem;
+    margin-left: 4rem;
+}
+
+.first-section .left-side .buttons {
+    display: flex;
+}
+
+.first-section .left-side .title-left-side {
+    color: var(--primary-purple);
+    text-align: left;
+    font-size: 2rem;
+    max-width: 400px;
+}
+
+.first-section .left-side .description {
+    color: var(--primary-purple);
+    font-weight: 500;
+    max-width: 500px;
+    font-size: 1rem;
+}
+
+.right-side {
+    width: 40%;
+    position: relative;
+    margin-left: 2rem;
+    transition: all 1s;
+    margin-bottom: 3rem;
+}
+
+.first-card {
+    width: 250px;
+    height: 450px;
+    margin-bottom: 6rem;
+    border-radius: 10px;
+    box-shadow: 05px 05px 20px #2222221f;
+    transition: all 1s;
+}
+
+.first-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.second-card {
+    width: 250px;
+    height: 450px;
+    margin-bottom: 6rem;
+    border-radius: 10px;
+    position: absolute;
+    right: 8rem;
+    top: 5rem;
+    z-index: -1;
+    transition: all 1s;
+    box-shadow: 05px 05px 20px #2222221f;
+}
+
+.second-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.right-side:hover .first-card {
+    margin-top: 4rem;
+}
+
+.right-side:hover .second-card {
+    top: 2rem;
+}
+
+.third-card {
+    width: 250px;
+    height: 450px;
+    margin-bottom: 6rem;
+    border-radius: 10px;
+    z-index: -2;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 1s;
+    box-shadow: 05px 05px 20px #2222221f;
+}
+
+.third-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
