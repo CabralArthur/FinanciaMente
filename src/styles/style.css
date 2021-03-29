@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@300;400;500&family=Montserrat:wght@500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
 
 :root {
     --primary-font: "Montserrat", sans-serif;
+    --second-font: "Poppins", sans-serif;
     --primary-purple: #4a49ff;
     --second-purple: #3d3df8;
     --first-dark-purple: #212170;
@@ -83,7 +84,7 @@ body {
 }
 
 /*Header*/
-.main-header {
+#main-header {
     width: 100%;
     height: 5rem;
     display: flex;
@@ -125,6 +126,29 @@ body {
 
 .header-navigation .list-header-nav li a:hover {
     color: var(--primary-green);
+}
+
+.title-section {
+    font-size: 3rem;
+    color: var(--primary-purple);
+}
+
+.title-section::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 250px;
+    margin: 5px auto;
+    background-color: var(--primary-purple);
+}
+
+.title-section::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 280px;
+    margin: 5px auto;
+    background-color: var(--primary-purple);
 }
 
 /*First Section*/
@@ -322,7 +346,9 @@ body {
     justify-content: center;
     max-width: 275px;
     height: 375px;
+    font-family: var(--second-font);
     background-color: var(--primary-white);
+    color: var(--dark-green);
     box-shadow: 0 8px 16px 3px rgba(25, 37, 22, 0.137);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -505,6 +531,51 @@ body {
 #calcs {
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+}
+
+.calc-div {
+    display: flex;
+    min-width: 250px;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-purple);
+    border-radius: 05px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.calc-div:hover {
+    transform: scale(1.15);
+}
+
+.calc-div h3 {
+    color: var(--primary-white);
+    max-width: 200px;
+    position: absolute;
+    z-index: 20;
+}
+
+.calc-div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 05px;
+    opacity: 0.4;
+    mix-blend-mode: darken;
+}
+
+.calculadoras {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 6rem;
 }
 
 .footer-site {
@@ -519,10 +590,28 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
+    text-align: left;
 }
 
 .logo-footer-site {
     width: 18rem;
     height: 5rem;
     margin-left: 2rem;
+}
+
+.footer-list {
+    text-align: left;
+    margin: 0;
+}
+
+.footer-list li h4 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-list li,
+a {
+    text-align: left;
+    font-size: 1.1rem;
+    margin: 0.5rem;
+    color: var(--primary-white);
 }
