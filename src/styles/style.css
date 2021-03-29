@@ -90,6 +90,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    animation: aparece 1.5s;
 }
 
 .content-main-header {
@@ -173,6 +174,7 @@ body {
     gap: 2rem;
     margin-bottom: 8rem;
     margin-left: 4rem;
+    animation: aparece 1.5s;
 }
 
 .left-side .buttons {
@@ -200,6 +202,7 @@ body {
     transition: all 1s;
     margin-bottom: 3rem;
     z-index: 100;
+    animation: aparece 3s;
 }
 
 .first-card {
@@ -614,4 +617,13 @@ a {
     font-size: 1.1rem;
     margin: 0.5rem;
     color: var(--primary-white);
+}
+
+@keyframes aparece {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
