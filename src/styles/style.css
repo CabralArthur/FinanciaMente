@@ -162,6 +162,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    text-align: center;
 }
 
 .left-side {
@@ -625,5 +626,41 @@ a {
     }
     100% {
         opacity: 1;
+    }
+}
+
+@media only screen and (min-width: 788px) and (max-width: 979px) {
+}
+@media only screen and (max-width: 1050px) {
+    #first-section {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    .right-side {
+        display: none;
+    }
+    .left-side {
+        width: 100%;
+        text-align: center;
+    }
+    .list-header-nav {
+        display: flex;
+        gap: 0;
+    }
+    .list-header-nav li {
+        width: 5rem;
+    }
+    .header-navigation {
+        gap: 8rem;
+    }
+
+    .left-side .title-left-side {
+        text-align: center;
+    }
+
+    .left-side .buttons {
+        width: 100%;
+        text-align: center;
     }
 }
