@@ -258,26 +258,7 @@
             <h4>Calcular Descontos</h4>
             <i class="fas fa-times" onclick='Fecha("calc-desc")'></i>
         </div>
-        <form id="formDesc">
-            <label for="valIniDesx">Valor Inicial</label>
-            <input id="valIniDesc" name="valIniDesc" type="number">
 
-            <label for="Desc">Desconto Aplicado</label>
-            <input id="Desc" name="Desc" type="number">
-
-            <button class="btnSub" onclick="calcularDesc()">Calcular</button>
-        </form>
-        <div class="resultado">
-            <header>
-                <i class="fas fa-money-bill-wave fa-spin"></i>
-                <span> Seu Resultado é</span>
-                <i class="fas fa-money-bill-wave fa-spin"></i>
-            </header>
-            <span class="resultado" id="resultadoJurosCompostos">Ainda Não Foi Calculado</span>
-
-            <button class="btnSub" onclick='limpar("resultadoDesconto")'>Limpar</button>
-
-        </div>
     </div>
 
 
@@ -364,11 +345,12 @@
         function calcularDesc() {
             const valIniDesc = document.getElementById("valIniDesc").value;
             const Desc = document.getElementById("Desc").value;
+            const resultadoDesconto = document.getElementById("resultadoJurosDesconto")
             const form = document.getElementById('formDesc')
             form.addEventListener('submit', e => {
 
                 e.preventDefault()
-                axios.post("http://localhost:3000/calcjc", { valIniDesc, Desx }).then(res => resultadoJC.innerText = res.data.montante)
+                axios.post("http://localhost:3000/calcjc", { valIniDesc, Desx }).then(res => resultadoDesconto.innerText = res.data.montante)
 
             })
         }
