@@ -21,7 +21,8 @@
         <div class="content-main-header">
             <nav class="header-navigation">
                 <a href="#first-section">
-                    <img src="./src/images/assets/logo/logo-financiamente-purple.svg.svg" alt="Logo Financiamente" class="logo-main-header">
+                    <img src="./src/images/assets/logo/logo-financiamente-purple.svg.svg" alt="Logo Financiamente"
+                        class="logo-main-header">
                 </a>
                 <ul class="list-header-nav">
                     <li>
@@ -70,15 +71,18 @@
     <div id="waveGid">
         <div class="waveGWrapper waveGAnimation">
             <div class="waveGWrapperInner bgGTop">
-                <div class="waveG waveGTop" style="background-image: url('./src/images/assets/others/wave-green-top.png')">
+                <div class="waveG waveGTop"
+                    style="background-image: url('./src/images/assets/others/wave-green-top.png')">
                 </div>
             </div>
             <div class="waveGWrapperInner bgGMiddle">
-                <div class="waveG waveGMiddle" style="background-image: url('./src/images/assets/others/wave-green-mid.png')">
+                <div class="waveG waveGMiddle"
+                    style="background-image: url('./src/images/assets/others/wave-green-mid.png')">
                 </div>
             </div>
             <div class="waveGWrapperInner bgGBottom">
-                <div class="waveG waveGBottom" style="background-image: url('./src/images/assets/others/wave-green-bot.png')">
+                <div class="waveG waveGBottom"
+                    style="background-image: url('./src/images/assets/others/wave-green-bot.png')">
                 </div>
             </div>
         </div>
@@ -151,11 +155,13 @@
                     </div>
                 </div>
                 <div class="waveWrapperInner bgMiddle">
-                    <div class="wave waveMiddle" style="background-image: url('./src/images/assets/others/wave-mid.png')">
+                    <div class="wave waveMiddle"
+                        style="background-image: url('./src/images/assets/others/wave-mid.png')">
                     </div>
                 </div>
                 <div class="waveWrapperInner bgBottom">
-                    <div class="wave waveBottom" style="background-image: url('./src/images/assets/others/wave-bot.png')">
+                    <div class="wave waveBottom"
+                        style="background-image: url('./src/images/assets/others/wave-bot.png')">
                     </div>
                 </div>
             </div>
@@ -252,7 +258,26 @@
             <h4>Calcular Descontos</h4>
             <i class="fas fa-times" onclick='Fecha("calc-desc")'></i>
         </div>
+        <form id="formDesc">
+            <label for="valIniDesx">Valor Inicial</label>
+            <input id="valIniDesc" name="valIniDesc" type="number">
 
+            <label for="Desc">Desconto Aplicado</label>
+            <input id="Desc" name="Desc" type="number">
+
+            <button class="btnSub" onclick="calcularDesc()">Calcular</button>
+        </form>
+        <div class="resultado">
+            <header>
+                <i class="fas fa-money-bill-wave fa-spin"></i>
+                <span> Seu Resultado é</span>
+                <i class="fas fa-money-bill-wave fa-spin"></i>
+            </header>
+            <span class="resultado" id="resultadoJurosCompostos">Ainda Não Foi Calculado</span>
+
+            <button class="btnSub" onclick='limpar("resultadoDesconto")'>Limpar</button>
+
+        </div>
     </div>
 
 
@@ -264,15 +289,18 @@
         <div id="wavePid">
             <div class="wavePWrapper wavePAnimation">
                 <div class="wavePWrapperInner bgPTop">
-                    <div class="waveP wavePTop" style="background-image: url('./src/images/assets/others/wave-purple-top.png')">
+                    <div class="waveP wavePTop"
+                        style="background-image: url('./src/images/assets/others/wave-purple-top.png')">
                     </div>
                 </div>
                 <div class="wavePWrapperInner bgPMiddle">
-                    <div class="waveP wavePMiddle" style="background-image: url('./src/images/assets/others/wave-purple-mid.png')">
+                    <div class="waveP wavePMiddle"
+                        style="background-image: url('./src/images/assets/others/wave-purple-mid.png')">
                     </div>
                 </div>
                 <div class="wavePWrapperInner bgPBottom">
-                    <div class="waveP wavePBottom" style="background-image: url('./src/images/assets/others/wave-purple-bot.png')">
+                    <div class="waveP wavePBottom"
+                        style="background-image: url('./src/images/assets/others/wave-purple-bot.png')">
                     </div>
                 </div>
             </div>
@@ -332,6 +360,18 @@
             })
         }
 
+
+        function calcularDesc() {
+            const valIniDesc = document.getElementById("valIniDesc").value;
+            const Desc = document.getElementById("Desc").value;
+            const form = document.getElementById('formDesc')
+            form.addEventListener('submit', e => {
+
+                e.preventDefault()
+                axios.post("http://localhost:3000/calcjc", { valIniDesc, Desx }).then(res => resultadoJC.innerText = res.data.montante)
+
+            })
+        }
 
         function limpar(id) {
             const resultado = document.getElementById(id);
