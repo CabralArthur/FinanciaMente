@@ -187,7 +187,7 @@
             <i class="fas fa-times" onclick='Fecha("calc-js")'></i>
         </div>
         <div class="calc-content">
-            <form id="form">
+            <form id="formJS">
                 <label for="valIniJS">Valor Inicial</label>
                 <input id="valIniJS" name="valIniJS" type="number">
 
@@ -198,7 +198,6 @@
                 <input id="numPJS" name="numPJS" type="number">
 
                 <button class="btnSub" onclick="calcularJS()">Calcular</button>
-                <span id="resultJS"></span>
             </form>
             <div class="resultado">
                 <header>
@@ -208,7 +207,7 @@
                 </header>
                 <span class="resultado" id="resultadoJurosSimples">Ainda Não Foi Calculado</span>
 
-                <button class="btnSub" onclick="limpar()">Limpar</button>
+                <button class="btnSub" onclick='limpar("resultadoJurosSimples")'>Limpar</button>
 
             </div>
         </div>
@@ -220,7 +219,32 @@
             <h4>Calcular Rendimentos Com Juros Compostos</h4>
             <i class="fas fa-times" onclick='Fecha("calc-jc")'></i>
         </div>
+        <div class="calc-content">
+            <form id="formJC">
+                <label for="valIniJS">Valor Inicial</label>
+                <input id="valIniJC" name="valIniJC" type="number">
 
+                <label for="taxJurJS">Taxa de Juros</label>
+                <input id="txJurJC" name="txJurJC" type="number">
+
+                <label for="numPerJS">Número de Períodos</label>
+                <input id="numPJC" name="numPJC" type="number">
+
+                <button class="btnSub" onclick="calcularJC()">Calcular</button>
+            </form>
+            <div class="resultado">
+                <header>
+                    <i class="fas fa-money-bill-wave fa-spin"></i>
+                    <span> Seu Resultado é</span>
+                    <i class="fas fa-money-bill-wave fa-spin"></i>
+                </header>
+                <span class="resultado" id="resultadoJurosCompostos">Ainda Não Foi Calculado</span>
+
+                <button class="btnSub" onclick='limpar("resultadoJurosCompostos")'>Limpar</button>
+
+            </div>
+        </div>
+        <span class="span-calc">FinanciaMente - Feito por Arthur Cabral</span>
     </div>
 
     <div id="calc-desc">
@@ -284,18 +308,33 @@
             const valIniJS = document.getElementById("valIniJS").value;
             const txJurJS = document.getElementById("txJurJS").value;
             const numPJS = document.getElementById("numPJS").value;
-            const resultado = document.getElementById("resultadoJurosSimples");
-            const form = document.getElementById('form')
+            const resultadoJS = document.getElementById("resultadoJurosSimples");
+            const form = document.getElementById('formJS')
             form.addEventListener('submit', e => {
 
                 e.preventDefault()
-                axios.post("http://localhost:3000/calcjs", { valIniJS, txJurJS, numPJS }).then(res => resultado.innerText = res.data.montante)
+                axios.post("http://localhost:3000/calcjs", { valIniJS, txJurJS, numPJS }).then(res => resultadoJS.innerText = res.data.montante)
 
             })
         }
 
-        function limpar() {
-            const resultado = document.getElementById("resultadoJurosSimples");
+        function calcularJC() {
+            const valIniJC = document.getElementById("valIniJC").value;
+            const txJurJC = document.getElementById("txJurJC").value;
+            const numPJC = document.getElementById("numPJC").value;
+            const resultadoJC = document.getElementById("resultadoJurosCompostos");
+            const form = document.getElementById('formJC')
+            form.addEventListener('submit', e => {
+
+                e.preventDefault()
+                axios.post("http://localhost:3000/calcjc", { valIniJC, txJurJC, numPJC }).then(res => resultadoJC.innerText = res.data.montante)
+
+            })
+        }
+
+
+        function limpar(id) {
+            const resultado = document.getElementById(id);
             resultado.innerText = 'Resultado Limpo'
         }
 
