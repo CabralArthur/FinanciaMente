@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
     <header id="main-header">
         <div class="content-main-header">
             <nav class="header-navigation">
@@ -188,14 +187,17 @@
             <i class="fas fa-times" onclick='Fecha("calc-js")'></i>
         </div>
         <div class="calc-content">
-            <form action="">
+            <form>
                 <label for="valIniJS">Valor Inicial</label>
-                <input id="valIniJS" type="number">
+                <input id="valIniJS" name="valIniJS" type="number">
+
                 <label for="taxJurJS">Taxa de Juros</label>
-                <input type="number">
-                <label for="numPerJS">Taxa de Juros</label>
-                <input type="number">
-                <button class="btnSub" type="submit">Calcular</button>
+                <input id="txJurJS" name="txJurJS" type="number">
+
+                <label for="numPerJS">Número de Períodos</label>
+                <input id="numPJS" name="numPJS" type="number">
+
+                <button class="btnSub" onclick="calcularJS()">Calcular</button>
                 <span id="resultJS"></span>
             </form>
             <div class="resultado">
@@ -218,28 +220,7 @@
             <h4>Calcular Rendimentos Com Juros Compostos</h4>
             <i class="fas fa-times" onclick='Fecha("calc-jc")'></i>
         </div>
-        <div class="calc-content">
-            <form action="">
-                <label for="valIniJS">Valor Inicial</label>
-                <input id="valIniJS" type="number">
-                <label for="taxJurJS">Taxa de Juros</label>
-                <input type="number">
-                <label for="numPerJS">Taxa de Juros</label>
-                <input type="number">
-                <button class="btnSub" type="submit">Calcular</button>
-                <span id="resultJS"></span>
-            </form>
-            <div class="resultado">
-                <header>
-                    <i class="fas fa-money-bill-wave fa-spin"></i>
-                    <span> Seu Resultado é</span>
-                    <i class="fas fa-money-bill-wave fa-spin"></i>
-                </header>
-                <span class="resultado">Ainda Não Foi Calculado</span>
-                <button class="btnSub" type="submit">Limpar</button>
-            </div>
-        </div>
-        <span class="span-calc">FinanciaMente - Feito por Arthur Cabral</span>
+
     </div>
 
     <div id="calc-desc">
@@ -247,30 +228,7 @@
             <h4>Calcular Descontos</h4>
             <i class="fas fa-times" onclick='Fecha("calc-desc")'></i>
         </div>
-        <div class="calc-content">
-            <form action="">
-                <label for="valIniJS">Valor Inicial</label>
-                <input id="valIniJS" type="number">
-                <label for="taxJurJS">Taxa de Juros</label>
-                <input type="number">
-                <label for="numPerJS">Taxa de Juros</label>
-                <input type="number">
-                <button class="btnSub" type="submit">Calcular</button>
-                <span id="resultJS"></span>
-            </form>
-            <div class="resultado">
-                <header>
-                    <i class="fas fa-money-bill-wave fa-spin"></i>
-                    <span> Seu Resultado é</span>
-                    <i class="fas fa-money-bill-wave fa-spin"></i>
-                </header>
-                <span class="resultado">Ainda Não Foi Calculado</span>
 
-                <button class="btnSub" type="submit">Limpar</button>
-
-            </div>
-        </div>
-        <span class="span-calc">FinanciaMente - Feito por Arthur Cabral</span>
     </div>
 
 
@@ -320,7 +278,20 @@
     </footer>
     <script src="./src/scripts/script.js"></script>
     <script src="./src/scripts/vanilla-tilt.js"></script>
+    <script>
+        function calcularJS() {
+            const valIniJS = document.getElementById("valIniJS").value;
+            const txJurJS = document.getElementById("txJurJS").value;
+            const numPJS = document.getElementById("numPJS").value;
+            alert(valIniJS)
+            alert(txJurJS)
+            alert(numPJS)
 
+
+            axios.post("http://localhost:3000/calcjs").then(res => alert(res.data.montante))
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 
 </html>
