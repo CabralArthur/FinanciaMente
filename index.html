@@ -187,7 +187,7 @@
             <i class="fas fa-times" onclick='Fecha("calc-js")'></i>
         </div>
         <div class="calc-content">
-            <form>
+            <form id="form">
                 <label for="valIniJS">Valor Inicial</label>
                 <input id="valIniJS" name="valIniJS" type="number">
 
@@ -206,9 +206,9 @@
                     <span> Seu Resultado é</span>
                     <i class="fas fa-money-bill-wave fa-spin"></i>
                 </header>
-                <span class="resultado">Ainda Não Foi Calculado</span>
+                <span class="resultado" id="resultadoJurosSimples">Ainda Não Foi Calculado</span>
 
-                <button class="btnSub" type="submit">Limpar</button>
+                <button class="btnSub" onclick="limpar()">Limpar</button>
 
             </div>
         </div>
@@ -279,17 +279,26 @@
     <script src="./src/scripts/script.js"></script>
     <script src="./src/scripts/vanilla-tilt.js"></script>
     <script>
+
         function calcularJS() {
             const valIniJS = document.getElementById("valIniJS").value;
             const txJurJS = document.getElementById("txJurJS").value;
             const numPJS = document.getElementById("numPJS").value;
-            alert(valIniJS)
-            alert(txJurJS)
-            alert(numPJS)
+            const resultado = document.getElementById("resultadoJurosSimples");
+            const form = document.getElementById('form')
+            form.addEventListener('submit', e => {
 
+                e.preventDefault()
+                axios.post("http://localhost:3000/calcjs", { valIniJS, txJurJS, numPJS }).then(res => resultado.innerText = res.data.montante)
 
-            axios.post("http://localhost:3000/calcjs").then(res => alert(res.data.montante))
+            })
         }
+
+        function limpar() {
+            const resultado = document.getElementById("resultadoJurosSimples");
+            resultado.innerText = 'Resultado Limpo'
+        }
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
