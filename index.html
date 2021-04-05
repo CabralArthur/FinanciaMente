@@ -259,7 +259,30 @@
             <h4>Calcular Descontos</h4>
             <i class="fas fa-times" onclick='Fecha("calc-desc")'></i>
         </div>
+        <div class="calc-content">
+            <form id="formDesc">
+                <label for="valDesej">Valor Inicial</label>
+                <input id="valDesej" name="valDesej" type="number">
 
+                <label for="taxJurJS">Desconto Desejado</label>
+                <input id="Desc" name="Desc" type="number">
+
+
+                <button class="btnSub" onclick="calcularDesc()">Calcular</button>
+            </form>
+            <div class="resultado">
+                <header>
+                    <i class="fas fa-money-bill-wave fa-spin"></i>
+                    <span> Seu Resultado é</span>
+                    <i class="fas fa-money-bill-wave fa-spin"></i>
+                </header>
+                <span class="resultado" id="resultadoDesconto">Ainda Não Foi Calculado</span>
+
+                <button class="btnSub" onclick='limpar("resultadoDesconto")'>Limpar</button>
+
+            </div>
+        </div>
+        <span class="span-calc">FinanciaMente - Feito por Arthur Cabral</span>
     </div>
 
     <div id="modalbg">
@@ -342,14 +365,14 @@
 
 
         function calcularDesc() {
-            const valIniDesc = document.getElementById("valIniDesc").value;
+            const valDesej = document.getElementById("valDesej").value;
             const Desc = document.getElementById("Desc").value;
-            const resultadoDesconto = document.getElementById("resultadoJurosDesconto")
+            const resultadoDesconto = document.getElementById("resultadoDesconto")
             const form = document.getElementById('formDesc')
             form.addEventListener('submit', e => {
 
                 e.preventDefault()
-                axios.post("https://financiamente.herokuapp.com/calcjc", { valIniDesc, Desx }).then(res => resultadoDesconto.innerText = res.data.montante)
+                axios.post("https://financiamente.herokuapp.com/calcjc", { valIniDesc, Desc }).then(res => resultadoDesconto.innerText = res.data.montante)
 
             })
         }
