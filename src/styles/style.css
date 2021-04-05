@@ -617,6 +617,10 @@ body {
   display: none;
 }
 
+#calc-desc {
+  height: 300px;
+}
+
 .header-calc {
   width: 100%;
   height: 2rem;

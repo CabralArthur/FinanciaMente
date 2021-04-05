@@ -372,7 +372,7 @@
             form.addEventListener('submit', e => {
 
                 e.preventDefault()
-                axios.post("https://financiamente.herokuapp.com/calcjc", { valIniDesc, Desc }).then(res => resultadoDesconto.innerText = res.data.montante)
+                axios.post("https://financiamente.herokuapp.com/calcjc", { valDesej, Desc }).then(res => resultadoDesconto.innerText = res.data.montante)
 
             })
         }
