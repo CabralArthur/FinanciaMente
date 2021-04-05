@@ -321,7 +321,7 @@
             form.addEventListener('submit', e => {
 
                 e.preventDefault()
-                axios.post("http://localhost:3000/calcjs", { valIniJS, txJurJS, numPJS }).then(res => resultadoJS.innerText = res.data.montante)
+                axios.post("https://financiamente.herokuapp.com/calcjs", { valIniJS, txJurJS, numPJS }).then(res => resultadoJS.innerText = res.data.montante)
 
             })
         }
@@ -335,7 +335,7 @@
             form.addEventListener('submit', e => {
 
                 e.preventDefault()
-                axios.post("http://localhost:3000/calcjc", { valIniJC, txJurJC, numPJC }).then(res => resultadoJC.innerText = res.data.montante)
+                axios.post("https://financiamente.herokuapp.com/calcjc", { valIniJC, txJurJC, numPJC }).then(res => resultadoJC.innerText = res.data.montante)
 
             })
         }
@@ -349,7 +349,7 @@
             form.addEventListener('submit', e => {
 
                 e.preventDefault()
-                axios.post("http://localhost:3000/calcjc", { valIniDesc, Desx }).then(res => resultadoDesconto.innerText = res.data.montante)
+                axios.post("https://financiamente.herokuapp.com/calcjc", { valIniDesc, Desx }).then(res => resultadoDesconto.innerText = res.data.montante)
 
             })
         }
